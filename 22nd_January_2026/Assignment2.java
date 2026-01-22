@@ -12,6 +12,12 @@ public class Assignment2
     {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
+        if(N <= 0)
+        {
+            System.out.println("Enter a positive integer greater than 0");
+            sc.close();
+            return;
+        }
         int i = 1;
         System.out.println("Iterations from 1 to " + N + ": ");
         while(i < N+1)
