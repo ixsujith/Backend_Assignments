@@ -88,23 +88,7 @@ class duplicateRemoval
         this.age = age;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        duplicateRemoval other = (duplicateRemoval) obj;
-        return id == other.id && age == other.age && Objects.equals(name, other.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, age);
-    }
-
-    @Override
-    public String toString() {
-        return id + ", " + name + ", " + age;
-    }
+    
 }
 
 public class Problem5
