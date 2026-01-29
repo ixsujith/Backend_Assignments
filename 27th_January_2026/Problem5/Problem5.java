@@ -75,22 +75,6 @@ class InvalidAgeException extends Exception
     }
 }
 
-class duplicateRemoval
-{
-    int id;
-    String name;
-    int age;
-
-    public duplicateRemoval(int id, String name, int age)
-    {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-    }
-
-    
-}
-
 public class Problem5
 {
     private static final Logger logger = Logger.getLogger(Problem5.class.getName());
@@ -101,8 +85,6 @@ public class Problem5
         BufferedReader br = null;
         BufferedWriter valid = null;
         BufferedWriter invalid = null;
-
-        Set<duplicateRemoval> studentSet = new HashSet<>();
 
         try
         {
@@ -132,25 +114,12 @@ public class Problem5
                     throw new InvalidAgeException("Age should be >= 18: " + line);
                 }
 
-                duplicateRemoval student = new duplicateRemoval(id, name, age);
+                StringBuilder sb = new StringBuilder();
+                sb.append(id + ", ");
+                sb.append(name + ", ");
+                sb.append(age);
+                valid.write(sb.toString() + "\n");
 
-                if (studentSet.contains(student))
-                {
-                    invalid.write(line + "\n");
-                    continue;
-                }
-                else
-                {
-                    studentSet.add(student);
-                    valid.write(student.toString() + "\n");
-                }
-
-                // StringBuilder sb = new StringBuilder();
-                // sb.append(id + ", ");
-                // sb.append(name + ", ");
-                // sb.append(age);
-
-                // valid.write(sb.toString() + "\n");
                 }
                 catch (IncompleteDataException e)
                 {
