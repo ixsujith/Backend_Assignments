@@ -104,8 +104,7 @@ public class Problem1
             System.out.println("Comparing S1 and S3 using equals() method: " + S1.equals(S3));
 
             System.out.println("Explaination:");
-            System.out.println("The == is called as an equality operator that compares if two references point to the same memory location, whereas the equal() method is used to compare the values or contents of the object");
-
+            System.out.println("The == is an opeartor the compares the memory location, whereas equals() is a method that compares the content-values.")
             br.close();
             fr.close();
         }
