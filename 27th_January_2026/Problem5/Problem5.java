@@ -89,7 +89,7 @@ public class Problem5
 
         try
         {
-            br = new BufferedReader(new FileReader("input.txt"));
+            br = new BufferedReader(new FileReader("students.txt"));
             valid = new BufferedWriter(new FileWriter("valid.txt"));
             invalid = new BufferedWriter(new FileWriter("invalid.txt"));
 
