@@ -29,8 +29,8 @@ public class Problem1
 
             String line;
             StringBuilder text = new StringBuilder(); // Used to store entire paragraph (further used for duplicate space removal)
+            
             // Counting number of lines, words, and characters in the file
-
             int lineCount = 0, wordCount = 0, characterCount = 0;
             List<String> words = new ArrayList<>();
             while((line = br.readLine()) != null)
@@ -81,7 +81,7 @@ public class Problem1
             String[] sentences = text.toString().split("(?<=[.!?])\\s*");
             System.out.println("Reverse operation: ");
             for(String s : sentences)
-            {;
+            {
                 String[] stringWords = s.split(" ");
                 StringBuilder rev = new StringBuilder();
                 for(int i = stringWords.length - 1; i >= 0; i--)
