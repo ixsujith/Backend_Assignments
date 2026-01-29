@@ -81,10 +81,11 @@ public class Problem5
 
     public static void main(String[] args) throws IOException
     {
-
         BufferedReader br = null;
         BufferedWriter valid = null;
         BufferedWriter invalid = null;
+
+        Set<Integer> set = new HashSet<>();
 
         try
         {
@@ -114,11 +115,19 @@ public class Problem5
                     throw new InvalidAgeException("Age should be >= 18: " + line);
                 }
 
-                StringBuilder sb = new StringBuilder();
-                sb.append(id + ", ");
-                sb.append(name + ", ");
-                sb.append(age);
-                valid.write(sb.toString() + "\n");
+                if(set.contains(id))
+                {
+                    invalid.write(line + "\n");
+                    continue;
+                }
+                else{
+                    set.add(id);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(id + ", ");
+                    sb.append(name + ", ");
+                    sb.append(age);
+                    valid.write(sb.toString() + "\n");
+                }
 
                 }
                 catch (IncompleteDataException e)
