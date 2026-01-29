@@ -25,15 +25,30 @@ public class Problem4
         Scanner sc = new Scanner(System.in);
         ArrayList<Number> list = new ArrayList<>();
 
-        int n = sc.nextInt();
-        sc.nextLine();
-        if(n <= 0)
+        String n = sc.nextLine();
+        // sc.nextLine();
+
+        int num1;
+        try
+        {
+            num1 = Integer.parseInt(String.valueOf(n));
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Invalid input: " + e.getMessage());
+            sc.close();
+            return;
+        }
+
+        if(num1 <= 0)
         {
             System.out.println("Enter number greater than 0");
             sc.close();
             return;
         }
-        for(int i = 0; i < n; i++)
+
+        
+        for(int i = 0; i < num1; i++)
         {
             try
             {
@@ -80,6 +95,15 @@ public class Problem4
         while(it.hasNext())
         {
             System.out.println(it.next());
+        }
+
+        System.out.println();
+        
+        // For-Each loop
+        System.out.println("Using For-Each loop:");
+        for(Number num : list)
+        {
+            System.out.println(num);
         }
     }
 }
