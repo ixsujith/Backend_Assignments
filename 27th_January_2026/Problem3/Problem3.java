@@ -43,9 +43,9 @@ class Validator
 {
     static void userNameValidate(String userName) throws InvalidUserNameException
     {
-        if(userName == null || userName.length() < 2)
+        if(userName == null || !userName.matches("[A-Za-z]{2,}"))
         {
-            throw new InvalidUserNameException("Invalid Usename input");
+            throw new InvalidUserNameException("Invalid Username input");
         }
     }
 
@@ -59,7 +59,7 @@ class Validator
 
     static void emailValidate(String email) throws InvalidEmailException
     {
-        if(email == null || !email.contains("@"))
+        if(email == null || !email.matches(".+@.+\\..+"))
         {
             throw new InvalidEmailException("Invalid Email input");
         }
@@ -72,25 +72,39 @@ public class Problem3
     {
         Scanner sc = new Scanner(System.in);
         String userName = sc.nextLine();
-        int age = sc.nextInt();
-        sc.nextLine();
+        String age = sc.nextLine();
         String email = sc.nextLine();
-
         sc.close();
 
+        int ageInt = 0;
+        try
+        {
+            ageInt = Integer.parseInt(age);
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println("Invalid age input");
+        }
+        
         try
         {
             Validator.userNameValidate(userName);
-            Validator.ageValidate(age);
-            Validator.emailValidate(email);
         }
         catch (InvalidUserNameException e)
         {
             System.out.println(e.getMessage());
         }
+        try
+        {
+            Validator.ageValidate(ageInt);
+        }
         catch (InvalidAgeException e)
         {
             System.out.println(e.getMessage());;
+        }
+        try
+        {
+        Validator.emailValidate(email);
         }
         catch (InvalidEmailException e)
         {
