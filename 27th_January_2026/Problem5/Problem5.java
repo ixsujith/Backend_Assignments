@@ -97,6 +97,7 @@ public class Problem5
 
             while((line = br.readLine()) != null)
             {
+                logger.fine(line);
                 try
                 {
                 String[] data = line.split(",");
