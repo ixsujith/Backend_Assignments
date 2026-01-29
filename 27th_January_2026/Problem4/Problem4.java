@@ -27,6 +27,12 @@ public class Problem4
 
         int n = sc.nextInt();
         sc.nextLine();
+        if(n <= 0)
+        {
+            System.out.println("Enter number greater than 0");
+            sc.close();
+            return;
+        }
         for(int i = 0; i < n; i++)
         {
             try
@@ -49,7 +55,8 @@ public class Problem4
             }
         }
         sc.close();
-        int intSum = 0, floatSum = 0, floatCount = 0;
+        int intSum = 0, floatCount = 0;
+        double floatSum = 0.0;
         
         for(Number nums : list)
         {
@@ -66,5 +73,13 @@ public class Problem4
 
         System.out.println("Sum of all integers: " + (intSum + floatSum));
         System.out.println("Average of all floating-point number: " + (floatSum/floatCount));
+
+        // Using Iterator
+        Iterator<Number> it = list.iterator();
+        System.out.println("Using Iterator:");
+        while(it.hasNext())
+        {
+            System.out.println(it.next());
+        }
     }
 }
