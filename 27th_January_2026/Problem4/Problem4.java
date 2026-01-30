@@ -87,7 +87,15 @@ public class Problem4
         }
 
         System.out.println("Sum of all integers: " + (intSum + floatSum));
-        System.out.println("Average of all floating-point number: " + (floatSum/floatCount));
+
+        if(floatCount > 0)
+        {
+            System.out.println("Average of all floating-point numbers: " + (floatSum/floatCount));
+        }
+        else
+        {
+            System.out.println(0);
+        }
 
         // Using Iterator
         Iterator<Number> it = list.iterator();
