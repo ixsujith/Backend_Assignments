@@ -13,8 +13,7 @@ INSERT INTO enrollments (enroll_id, student_id, course_id, enroll_timestamp) VAL
 
 SELECT * FROM students;
 
-SELECT student_name, student_email
-FROM students;
+SELECT student_name, student_email FROM students;
 
 SELECT * FROM students ORDER BY student_age DESC;
 

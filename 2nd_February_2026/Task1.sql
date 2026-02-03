@@ -1,7 +1,7 @@
 create table students (
 	student_id BIGINT PRIMARY KEY,
-	student_name VARCHAR(255),
-	student_email VARCHAR(255) UNIQUE,
+	student_name VARCHAR(100),
+	student_email VARCHAR(100) UNIQUE,
 	student_age INT,
 	join_date DATE,
 	active_flag BIT DEFAULT 1
