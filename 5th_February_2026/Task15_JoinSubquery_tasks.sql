@@ -24,7 +24,11 @@ join orders on customers.customer_id = orders.customer_id where orders.order_pri
 select departments.department_name, employees.employee_id, employees.employee_salary from departments join employees on departments.department_id = employees.department_id
 where employees.employee_salary > (select avg(employees.employee_salary) from employees)
 
-select departments.department_name from departments where departments.department_id not in (select employees.department_id from employees)
+select * from customers join orders on customers.customer_id = orders.customer_id where orders.order_status in 
+(select orders.order_status from orders where orders.order_status like 'Delivered')
+
+select departments.department_name from departments left join employees on departments.department_id = employees.department_id
+where departments.department_id not in (select employees.department_id from employees)
 
 select * from employees e join (select * from departments where departments.department_name like 'Department%') d on e.employee_id = d.employee_id
 
@@ -36,5 +40,7 @@ where not exists (select orders.customer_id from orders)
 
 select customers.customer_id, customers.customer_name,
 (select orders.order_price from orders where customers.customer_id = orders.order_id) as order_amount from customers
+join orders on customers.customer_id = orders.customer_id
 
-select count(customers.customer_id), (select sum(orders.order_price) from orders) as total_customers from customers
+select count(customers.customer_id) as customer_count, (select sum(orders.order_price) from orders) as total_customers from customers
+join orders on customers.customer_id = orders.customer_id
