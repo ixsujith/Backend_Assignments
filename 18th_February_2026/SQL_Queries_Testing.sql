@@ -9,8 +9,9 @@ select c.c_id, c.c_name from citizens c join infect_status i on c.c_id = i.c_id
 where i.c_status = 'Recovered'
 order by c.c_id asc
 
-select b_id, count(b_id) from dose_data
-group by b_id
+select d.b_id, count(d.b_id) as vaccine_use_count, b.stock as original_stock, (b.stock - count(d.b_id)) as available_stock
+from dose_data d join batch_data b on d.b_id = b.b_id
+group by d.b_id, b.stock
 
 select i.c_id, v.l_id from infect_status i join visits v on i.c_id = v.c_id
 where i.c_status = 'Affected'
