@@ -1,0 +1,103 @@
+select * from citizens
+
+insert into citizens (c_id, c_name, c_phoneNum, c_address, c_city, c_country) values
+(1, 'user_1', '1234567891', 'Street 5, Jubilee Hills', 'Hyderabad', 'India'),
+(2, 'user_2', '9876543219', 'Street 41, Madhapur', 'Hyderabad', 'India'),
+(3, 'user_3', '4567891235', 'Street 7, Hitech City', 'Hyderabad', 'India'),
+(4, 'user_4', '3219876549', 'Street 5, Kondapur', 'Hyderabad', 'India'),
+(5, 'user_5', '4567897894', 'Street 10, Jubilee Hills', 'Hyderabad', 'India'),
+(6, 'user_6', '3692581478', 'Street 15, Kondapur', 'Hyderabad', 'India'),
+(7, 'user_7', '1594872635', 'Street 5, Madhapur', 'Hyderabad', 'India'),
+(8, 'user_8', '9563284718', 'Street 5, Jubilee Hills', 'Hyderabad', 'India'),
+(9, 'user_9', '9586478593', 'Street 5, Kondapur', 'Hyderabad', 'India'),
+(10, 'user_10', '1598478956', 'Street 5, Balanagar', 'Hyderabad', 'India');
+
+select * from locations
+
+insert into locations (l_id, l_name) values
+(101, 'Kondapur'),
+(102, 'Madhapur'),
+(103, 'Hitech City'),
+(104, 'Kukatpally'),
+(105, 'Balanagar'),
+(106, 'Karimnagar'),
+(107, 'Warangal'),
+(108, 'Hanamkonda'),
+(109, 'Bachupally'),
+(110, 'Ganesh Nagar');
+
+select * from visits
+
+insert into visits (v_id, c_id, l_id, entry_data, exit_data) values
+(201, 2, 103, '2026-01-26 10:15:00', '2026-01-28 13:30:00'),
+(202, 3, 103, '2026-01-24 09:45:00', '2026-01-27 14:25:00'),
+(203, 4, 103, '2026-01-26 07:15:00', '2026-01-28 16:30:00'),
+(204, 1, 106, '2026-01-23 14:25:00', '2026-01-27 10:20:00'),
+(205, 5, 106, '2026-01-25 14:30:00', '2026-01-27 20:15:00'),
+(206, 7, 104, '2026-01-24 16:45:00', '2026-01-30 09:45:00'),
+(207, 8, 104, '2026-01-26 16:30:00', '2026-01-30 09:45:00'),
+(208, 6, 107, '2026-01-23 09:15:00', '2026-01-30 09:30:00'),
+(209, 9, 104, '2026-01-24 15:45:00', '2026-01-28 09:45:00'),
+(210, 10, 101, '2026-01-27 10:45:00', '2026-01-28 10:15:00');
+
+select * from infect_status
+
+insert into infect_status (status_id, c_id, date_time, c_status) values
+(301, 1, '2026-01-25 10:45:00', 'Affected'),
+(302, 2, '2026-01-25 13:30:00', 'Affected'),
+(303, 3, '2026-01-25 15:15:00', 'Affected'),
+(304, 1, '2026-01-25 21:05:00', 'Recovered'),
+(305, 5, '2026-01-25 10:05:00', 'Affected'),
+(306, 7, '2026-01-25 06:10:00', 'Affected'),
+(307, 6, '2026-01-25 07:45:00', 'Affected'),
+(308, 5, '2026-01-25 08:55:00', 'Deceased'),
+(309, 7, '2026-01-25 15:35:00', 'Recovered'),
+(310, 2, '2026-01-25 23:35:00', 'Recovered'),
+(311, 3, '2026-01-25 14:45:00', 'Recovered'),
+(312, 4, '2026-01-25 14:45:00', 'Affected'),
+(313, 4, '2026-01-25 16:25:00', 'Recovered'),
+(314, 9, '2026-01-25 10:45:00', 'Affected'),
+(315, 10, '2026-01-25 10:45:00', 'Affected');
+
+select * from batch_data
+
+insert into batch_data (b_id, vaccine_name, vaccine_disease, stock) values
+(401, 'MMR', 'Measles, Mumps, Rubella', 50),
+(402, 'Polio', 'Poliomyelitis', 70),
+(403, 'Hepatitis B', 'Hepatitis B', 100),
+(404, 'DTaP', 'Diphtheria, Tetanus, Pertussis', 100),
+(405, 'COVID-19', 'COVID-19', 150);
+
+select * from dose_data
+
+insert into dose_data (dose_id, b_id, c_id, date_time, dose_count) values
+(501, 401, 1, '2026-01-05 10:45:00', 1),
+(502, 403, 8, '2026-01-05 06:05:00', 1),
+(503, 404, 4, '2026-01-06 15:25:00', 1),
+(504, 405, 3, '2026-01-07 23:45:00', 1),
+(505, 402, 7, '2026-01-08 11:15:00', 1),
+(506, 401, 1, '2026-02-05 10:20:00', 2),
+(507, 403, 8, '2026-02-05 15:25:00', 2),
+(508, 402, 7, '2026-02-05 18:30:00', 1),
+(509, 404, 4, '2026-02-05 16:45:00', 2),
+(510, 405, 3, '2026-02-07 10:45:00', 2);
+
+select * from audit_logs
+truncate table audit_logs
+
+insert into audit_logs (audit_id, viewer_id, c_id, date_time) values
+(601, 5, 1, '2026-01-25 10:15:00'),
+(602, 4, 1, '2026-01-25 11:00:00'),
+(603, 7, 2, '2026-01-25 11:30:00'),
+(604, 1, 3, '2026-01-26 09:45:00'),
+(605, 10, 4, '2026-01-26 10:20:00'),
+(606, 3, 7, '2026-01-26 14:10:00'),
+(607, 3, 6, '2026-01-26 09:00:00'),
+(608, 3, 7, '2026-01-26 15:30:00'),
+(609, 4, 8, '2026-01-26 10:50:00'),
+(610, 3, 9, '2026-01-26 16:40:00'),
+(611, 4, 10, '2026-01-26 11:25:00'),
+(612, 3, 5, '2026-01-26 13:15:00'),
+(613, 3, 7, '2026-01-26 09:35:00'),
+(614, 7, 3, '2026-01-30 14:55:00'),
+(615, 4, 2, '2026-01-31 12:10:00');
