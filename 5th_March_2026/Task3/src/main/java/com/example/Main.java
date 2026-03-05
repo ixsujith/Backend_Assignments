@@ -10,6 +10,8 @@ public class Main {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         BeanA beanA = context.getBean(BeanA.class);
+        BeanB beanB = context.getBean(BeanB.class);
         beanA.output1();
+        beanB.output2();
     }
 }

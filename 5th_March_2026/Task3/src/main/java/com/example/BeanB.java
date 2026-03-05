@@ -6,13 +6,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeanB {
 
-    public BeanB(BeanB beanB) {
-        this.beanB = beanB;
+// Constructor Method
+//    public BeanB(BeanA beanA) {
+//        this.beanA = beanA;
+//    }
+
+    public void setBeanA(BeanA beanA) {
+        this.beanA = beanA;
     }
 
-    private BeanB beanB;
+    private BeanA beanA;
 
-    public void BeanB() {
+    public void output2() {
         System.out.println("This is Bean B");
     }
 }
