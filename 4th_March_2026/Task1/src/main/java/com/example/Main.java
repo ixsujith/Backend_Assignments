@@ -1,3 +1,17 @@
+/*
+Task 1 – Build Spring WITHOUT Boot
+    Create Maven project manually.
+    Add:
+        spring-context
+        spring-beans
+    No Boot.
+ 
+    Create:
+        UserRepository
+        UserService
+        AppConfig (Java config)
+*/
+
 package com.example;
 
 import org.springframework.context.ApplicationContext;

@@ -1,3 +1,14 @@
+/*
+Task 3 – Circular Dependency
+    Create:
+        A → depends on B
+        B → depends on A
+    Use constructor injection.
+    Observe failure.
+    Now change to setter injection.
+    Understand WHY it works.
+*/
+
 package com.example;
 
 

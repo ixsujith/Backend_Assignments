@@ -1,3 +1,15 @@
+/*
+Task 2 – Implement Custom Bean Lifecycle Logging
+    Add:
+        @PostConstruct
+        @PreDestroy
+        InitializingBean
+        DisposableBean
+    Print logs in each stage.
+    Understand:
+        Creation → Injection → Initialization → Destruction
+*/
+
 package com.example;
 
 import org.springframework.context.ApplicationContext;
