@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Task2;
 
 
 import org.springframework.context.ApplicationContext;
@@ -9,7 +9,10 @@ public class Main {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        springTest springtest = context.getBean(springTest.class);
-        springtest.output();
+        GreetComponent greetComponent = context.getBean(GreetComponent.class);
+
+        greetComponent.greet();
+
+
     }
 }
