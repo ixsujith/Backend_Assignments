@@ -79,7 +79,7 @@ public class StudentController{
 
     // Task7
     @DeleteMapping("/deleteUser/{id}")
-    public ResponseEntity<Student> deleteUser(@PathVariable int id, @RequestBody(required = false) Student student) {
+    public ResponseEntity<Student> deleteUser(@PathVariable int id) {
         for(Student s : studentList.students) {
             if(id == s.getId()) {
                 studentList.students.remove(s);
