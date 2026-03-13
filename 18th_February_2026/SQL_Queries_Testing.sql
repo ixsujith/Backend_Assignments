@@ -28,3 +28,4 @@ select viewer_id, cast(date_time as date) as date_data, count(viewer_id) as view
 from audit_logs
 group by viewer_id, cast(date_time as date)
 order by cast(date_time as date) asc
+

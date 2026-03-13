@@ -44,6 +44,16 @@ create table dose_data (
 	dose_count int not null
 )
 
+/*
+create table vaccines_data (
+	vac_id int primary key,
+	vac_name varchar(100) not null,
+	vac_dosage int not null,
+	vac_create_date datetime2 default(sysdatetime()) not null,
+	vac_expiry_date datetime2 default(sysdatetime()) not null
+)
+*/
+
 create table audit_logs (
 	audit_id bigint primary key,
 	viewer_id bigint not null,
