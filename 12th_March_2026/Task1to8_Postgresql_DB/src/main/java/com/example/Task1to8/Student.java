@@ -1,6 +1,11 @@
 package com.example.Task1to8;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.UniqueElements;
+
 
 @Entity
 public class Student {
@@ -9,12 +14,16 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "student_name", nullable = false)
+    @NotNull
+    @Column(name = "student_name")
     private String name;
 
-    @Column(name = "student_age", nullable = false)
+    @NotNull
+    @Column(name = "student_age")
     private int age;
 
+    @NotNull
+    @Email
     @Column(name = "student_email", nullable = false, unique = true)
     private String emailId;
 

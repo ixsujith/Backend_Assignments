@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
-
+    
     List<Student> findByName(String name);
 
     List<Student> findAllByAge(int age);
@@ -16,6 +16,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     int countByAge(int age);
 
-    @Query("select s from Student s where s.age > :age")
+    List<Student> findByAge(int age);
+
+    @Query("select s from student_data s where s.age > :age")
     List<Student> findByQueryAge(@Param("age") int age);
 }

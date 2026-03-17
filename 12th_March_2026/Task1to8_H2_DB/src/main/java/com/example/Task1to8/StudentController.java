@@ -41,6 +41,11 @@ public class StudentController {
         return studentRepository.findByName(name);
     }
 
+    @GetMapping("sample")
+    public List<Student> sample(@RequestParam(defaultValue = "20") int age) {
+        return studentRepository.findByAge(age);
+    }
+
     @GetMapping("/findAllByAge/{age}")
     public List<Student> findAllByAge(@PathVariable int age) {
         return studentRepository.findAllByAge(age);
@@ -60,4 +65,6 @@ public class StudentController {
     public List<Student> queryAge(@PathVariable int age) {
         return studentRepository.findByQueryAge(age);
     }
+
+
 }
