@@ -62,10 +62,9 @@ public class StudentController {
         return studentRepository.countByAge(age);
     }
 
-    @GetMapping("/queryAge/{age}")
+    @GetMapping("/queryAgeJPQL/{age}")
     public List<Student> queryAge(@PathVariable int age) {
         return studentRepository.findByQueryAge(age);
     }
-
 
 }
