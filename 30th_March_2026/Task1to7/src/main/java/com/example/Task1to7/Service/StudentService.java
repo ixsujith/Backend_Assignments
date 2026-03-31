@@ -64,7 +64,7 @@ public class StudentService {
 
     @Transactional
     public Map<String, String> updateDataService(Long id, StudentRequestDTO requestDTO) {
-        Map<String, String> map = new HashMap();
+        Map<String, String> map = new HashMap<>();
         Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student with id " + id + " is not found"));
 
             student.setName(requestDTO.getName());
