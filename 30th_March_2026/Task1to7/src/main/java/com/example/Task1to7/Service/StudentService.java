@@ -79,7 +79,11 @@ public class StudentService {
     @Transactional
     public Map<String, String> deleteDataService(Long id) {
         Map<String, String> map = new HashMap<>();
-        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student with id " + id + "is not found"));
+        if(id < 0) {
+            map.put("message", "Enter id grater than 0");
+            return map;
+        }
+        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student with id " + id + " is not found"));
         studentRepository.deleteById(id);
         map.put("message", "Id " + id + " has been deleted");
         return map;
