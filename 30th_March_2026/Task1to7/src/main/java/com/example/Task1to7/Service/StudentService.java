@@ -56,7 +56,7 @@ public class StudentService {
 //        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student data doesn't exist"));
 //        return toDTO(student);
         if(id < 1){
-            return toDTO(studentRepository.findById(id).orElseThrow(() -> new RuntimeException(("Provided id should be greater than 0"))));
+            return toDTO(studentRepository.findById(id).orElseThrow(() -> new RuntimeException(("Enter id greater than 0"))));
         }
 
         return toDTO(studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student with id " + id + " is not found")));
@@ -65,6 +65,10 @@ public class StudentService {
     @Transactional
     public Map<String, String> updateDataService(Long id, StudentRequestDTO requestDTO) {
         Map<String, String> map = new HashMap<>();
+        if(id <= 0) {
+            map.put("message", "Enter id greater than 0");
+            return map;
+        }
         Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student with id " + id + " is not found"));
 
             student.setName(requestDTO.getName());
@@ -79,7 +83,7 @@ public class StudentService {
     @Transactional
     public Map<String, String> deleteDataService(Long id) {
         Map<String, String> map = new HashMap<>();
-        if(id < 0) {
+        if(id <= 0) {
             map.put("message", "Enter id grater than 0");
             return map;
         }

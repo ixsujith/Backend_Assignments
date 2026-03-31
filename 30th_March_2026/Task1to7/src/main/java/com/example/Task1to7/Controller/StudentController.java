@@ -44,7 +44,7 @@ public class StudentController {
         return studentService.updateDataService(id, requestDTO);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping( "{id}")
     public Map<String, String> deleteDataController(@PathVariable Long id) {
         return studentService.deleteDataService(id);
     }
