@@ -45,7 +45,7 @@ public class StudentService {
 
     @Transactional
     public Map<String, String> postDataService(StudentRequestDTO requestDTO) {
-        Map<String, String> map = new HashMap();
+        Map<String, String> map = new HashMap<>();
         Student student = toEntity(requestDTO);
         studentRepository.save(student);
         map.put("message", "Student data added");
